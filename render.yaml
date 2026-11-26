@@ -3,7 +3,6 @@
 services:
   - type: web
     name: carecar-portfolio-demo
-    displayName: CareCar — Portfolio Demo
     runtime: static
     plan: free
     branch: main
