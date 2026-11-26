@@ -34,35 +34,21 @@ npm run preview   # serve the production build locally
 
 ---
 
-## Deploy on Render (Static Site)
+## Deploy on Vercel (recommended)
 
-### Option A — Blueprint (fastest)
-
-1. Create a new GitHub repo under your account and push this folder's contents to its `main` branch:
-   ```bash
-   cd portfolio-demo
-   git init -b main
-   git add .
-   git commit -m "CareCar interactive portfolio demo"
-   git remote add origin https://github.com/mekdelawitworku6-lgtm/carecar-demo.git
-   git push -u origin main
-   ```
-2. In Render, click **New + → Blueprint** and select that repo.
-3. Render reads `render.yaml` and creates the site automatically.
-
-### Option B — Manual Static Site
-
-1. **New + → Static Site** → connect your repo.
-2. Settings:
+1. Go to **https://vercel.com/new** and click **Add New → Project**.
+2. Import the GitHub repo **`mekdelawitworku6-lgtm/carecar-demo`**. Keep the **Root Directory** as the repo root.
+3. Vercel auto-detects **Vite**. Confirm these settings:
+   - **Framework Preset:** `Vite`
    - **Build command:** `npm ci && npm run build`
-   - **Publish directory:** `dist`
-   - **Branch:** `main`
-   - **Node version:** `22` (set automatically by `render.yaml` in the Blueprint flow)
-3. No environment variables are needed. Click **Create Static Site**.
+   - **Output directory:** `dist`
+   - **Install command:** `npm ci`
+   - **Node version:** `22.x` (pinned in `package.json` and `vercel.json`)
+4. No environment variables are needed. Click **Deploy**.
 
-Your demo will be live at the Render-provided `onrender.com` URL, which you can add to your portfolio and CV.
+Your demo will be live at the Vercel-provided `*.vercel.app` URL, which you can add to your portfolio and CV.
 
-> Because this is a purely client-side app with no routing, no SPA rewrite rules or rewrite config are needed.
+> This is a purely client-side app with no routing, so no rewrite rules are needed. `render.yaml` remains as an optional Render Blueprint alternative and is ignored by Vercel.
 
 ---
 
